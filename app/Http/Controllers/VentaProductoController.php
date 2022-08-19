@@ -13,9 +13,7 @@ class VentaProductoController extends Controller
         //                                         FROM venta_productos 
         //                                         INNER JOIN productos on productos.producto_id = venta_productos.id 
         //                                         INNER JOIN detalle_productos on detalle_productos.id = productos.detalle_producto_id; 
-        $recibo=VentaProducto::select('detalle_productos.nombreProducto','detalle_productos.valorUnitarioProducto','detalle_productos.descripcionProdcuto ')   
-                                      ->join()
-                                      ->join()->get(); 
+ 
     }
 }
 
