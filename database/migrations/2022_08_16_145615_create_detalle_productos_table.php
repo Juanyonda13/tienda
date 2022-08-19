@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombreProducto',24);
             $table->string('imgProducto',200);
-            $table->string('descripcionProdcuto',24);
+            $table->string('descripcionProdcuto');
             $table->integer('valorUnitarioProducto')->length(120);
             $table->integer('iva')->length(12,2);
             $table->timestamps();
