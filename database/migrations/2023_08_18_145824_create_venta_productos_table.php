@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->integer('codigo')->length(20);
             $table->unsignedBigInteger('prductos_id');
-            $table->foreign('prductos_id')->references('producto_id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('prductos_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

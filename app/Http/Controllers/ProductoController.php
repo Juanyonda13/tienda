@@ -17,10 +17,16 @@ class ProductoController extends Controller
         // SELECT detalle_productos.imgProducto,detalle_productos.nombreProducto,detalle_productos.valorUnitarioProducto 
         //                         from productos 
         //                         inner join detalle_productos on detalle_productos.id = productos.producto_id;
+        if(Auth()->user()){
+            $h=Producto::select('detalle_productos.imgProducto','detalle_productos.nombreProducto','detalle_productos.valorUnitarioProducto','productos.id')
+            ->join('detalle_productos','detalle_productos.id','=','productos.id')
+            ->get();
 
-        $h=Producto::select('detalle_productos.imgProducto','detalle_productos.nombreProducto','detalle_productos.valorUnitarioProducto')->join('detalle_productos','detalle_productos.id','=','productos.producto_id')->get();
-        
-            return view('producto.index',compact('h'));
+             return view('producto.index',compact('h'));
+        }else{
+            return redirect()->route('login');
+        }
+
     }
     public function verelectrodomestico(){
         $detalle=DetalleProducto::all();
@@ -42,7 +48,7 @@ class ProductoController extends Controller
                      $producto->save();
                      if($producto){
                      Alert::success('producto subido a la tienda :)');
-                     return redirect('/');            
+                     return redirect()->route('Home');            
                  }else{
                      Alert::error('no insertaste una imagen');
                      return redirect()->route('verelectrodomestico');
@@ -55,5 +61,7 @@ class ProductoController extends Controller
          return redirect()->route('verRegisterProducto');
         }
      }
+
+
 
 }

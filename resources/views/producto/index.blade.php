@@ -16,9 +16,9 @@
 </head>
 
 <div class="col-12">
-    <section class="w-100 d-flex justify-content-start border pt-5 gap-3">
+    <section class="col-12 d-flex justify-content-start border pt-5 gap-3 text-break flex-wrap">
       <a class="fs-5 nav-link  border-bottom border-danger m-2 text-dark" href="#">LOS MAS VENDIDOS</a>
-      <p class="fs-5 disabled mt-3">REMCOMENDADOS</p>
+      <p class="fs-5 disabled mt-3 col-sm col-12">REMCOMENDADOS</p>
     </section>
     <section class="col-12">
       @foreach($h as $r)
@@ -35,12 +35,12 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">{{$r->nombreProducto}}</h5>
                                     <!-- Product price-->
-                                    ${{$r->valorUnitarioProducto}}
+                                    {{$r->valorUnitarioProducto}}
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/venta/{{$r->id}}">View options</a></div>
                             </div>
                         </div>
                     </div>
